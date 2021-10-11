@@ -2,7 +2,6 @@
         MOV R1, #15
         MOV R2, #4
 LOOP    INP R3, 2
-
 //identifica operacion
         MOV R4, #1
         CMP R3, R4
@@ -27,33 +26,24 @@ LOOP    INP R3, 2
         BEQ XOR_F
         MOV R4, #8
         CMP R3, R4
-        BEQ LOG_S_F
-        
+        BEQ LOG_S_R
 SUMA    ADD R5, R2, R1
         BRA SALIDA
-        
 RESTA   SUB R5, R1, R2
         BRA SALIDA
-        
 OP_AND  AND R5, R2, R1
         BRA SALIDA
-        
 OP_OR   ORR R5, R2, R1
-
 MODULO  MOD R1, R2
         OUT R1, 4
         BRA LOOP
-        
 DIVI    UDV R1, R2
         OUT R1, 4
         BRA LOOP
-        
 XOR_F   XOR R5, R1, R2
         BRA SALIDA
-        
-LOG_S_F LSL R5, R1, R2
+LOG_S_R LSR R5, R1, R2
         BRA SALIDA
-        
 SALIDA  OUT R5, 4
         BRA LOOP
         HLT
