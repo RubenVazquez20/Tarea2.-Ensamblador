@@ -1,0 +1,37 @@
+        MOV R1, #15
+        MOV R2, #4
+LOOP    INP R3, 2
+
+//identifica operacion
+        MOV R4, #1
+        CMP R3, R4
+        BEQ SUMA
+        MOV R4, #2
+        CMP R3, R4
+        BEQ RESTA
+        MOV R4, #3
+        CMP R3, R4
+        BEQ OP_AND
+        MOV R4, #4
+        CMP R3, R4
+        BEQ OP_OR
+        MOV R4, #5
+        CMP R3, R4
+        BEQ FINAL
+        
+SUMA    ADD R5, R2, R1
+        BRA SALIDA
+        
+RESTA   SUB R5, R1, R2
+        BRA SALIDA
+        
+OP_AND  AND R5, R2, R1
+        BRA SALIDA
+        
+OP_OR   ORR R5, R2, R1
+
+SALIDA  OUT R5, 4
+        BRA LOOP
+        HLT
+        
+FINAL   HLT
