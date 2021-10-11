@@ -1,0 +1,28 @@
+//PEDIR ENTRADA
+        INP R0, 2
+        
+//GUARDAR EN MEMORIA
+        MOV R1, #20
+        STR R0, (R1)
+        
+//SUMAR MEMORIA
+LOOP    ADD R1, #1
+
+//VARIABLE DE RESTA
+        MOV R2, #1
+        
+//VARIABLE DE SALIDA
+        MOV R4, #0
+        
+//RESTA
+        SUB R3, R0, R2
+        STR R3, (R1)
+        LDR R0, (R1)
+        
+//LLEGAR HASTA 0
+        CMP R0, R4
+        BEQ SALIR
+        BRA LOOP 
+        
+//SALIR
+SALIR   HLT
