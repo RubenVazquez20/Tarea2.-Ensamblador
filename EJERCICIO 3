@@ -2,6 +2,8 @@
         MOV R1, #15
         MOV R2, #4
 LOOP    INP R3, 2
+        MOV R1, #15
+        MOV R2, #4
 //identifica operacion
         MOV R4, #1
         CMP R3, R4
@@ -34,6 +36,7 @@ RESTA   SUB R5, R1, R2
 OP_AND  AND R5, R2, R1
         BRA SALIDA
 OP_OR   ORR R5, R2, R1
+        BRA LOOP
 MODULO  MOD R1, R2
         OUT R1, 4
         BRA LOOP
